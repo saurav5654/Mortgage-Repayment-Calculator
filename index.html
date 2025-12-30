@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Repayment Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <main class="calculator-card">
+        <section class="form-section">
+            <div class="header">
+                <h1>Mortgage Calculator</h1>
+                <button type="button" id="clear-btn">Clear All</button>
+            </div>
+
+            <form id="mortgage-form">
+                <div class="input-group full-width">
+                    <label for="amount">Mortgage Amount</label>
+                    <div class="input-wrapper">
+                        <span class="prefix">£</span>
+                        <input type="number" id="amount" step="0.01" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label for="term">Mortgage Term</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="term" required>
+                            <span class="suffix">years</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="rate">Interest Rate</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="rate" step="0.01" required>
+                            <span class="suffix">%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Mortgage Type</label>
+                    <label class="radio-container">
+                        <input type="radio" name="type" value="repayment" checked>
+                        <span class="radio-label">Repayment</span>
+                    </label>
+                    <label class="radio-container">
+                        <input type="radio" name="type" value="interest-only">
+                        <span class="radio-label">Interest Only</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-calculator"></i> <!-- Font Awesome calculator icon -->
+                    Calculate Repayments
+                </button>
+            </form>
+        </section>
+
+        <section class="results-section" id="results-container">
+            <div class="empty-state" id="empty-state">
+                <img src="./assets/images/illustration-empty.svg" alt="Illustration of an empty results state">
+                <h2>Results shown here</h2>
+                <p>Complete the form and click "calculate repayments" to see what your monthly repayments would be.</p>
+            </div>
+
+            <div class="completed-state hidden" id="completed-state">
+                <h2>Your results</h2>
+                <p>Your results are shown below based on the information you provided. To adjust the results, edit the
+                    form and click "calculate repayments" again.</p>
+
+                <div class="result-card">
+                    <div class="monthly">
+                        <small>Your monthly repayments</small>
+                        <span id="monthly-result">£0.00</span>
+                    </div>
+                    <hr>
+                    <div class="total">
+                        <small>Total you'll repay over the term</small>
+                        <span id="total-result">£0.00</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

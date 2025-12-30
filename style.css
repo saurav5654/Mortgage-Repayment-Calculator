@@ -1,0 +1,276 @@
+:root {
+    --primary-lime: hsl(61, 70%, 52%);
+    --slate-100: hsl(202, 86%, 94%);
+    --slate-300: hsl(203, 41%, 72%);
+    --slate-700: hsl(200, 26%, 54%);
+    --slate-900: hsl(202, 55%, 16%);
+    --white: #ffffff;
+}
+
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif; /* Ensure font is applied */
+}
+
+body {
+    background-color: var(--slate-100); /* Base background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Decorative background images */
+    background-image: url('./assets/images/bg-pattern-top-left.svg'),
+                      url('./assets/images/bg-pattern-top-right.svg'),
+                      url('./assets/images/bg-pattern-bottom-left.svg'),
+                      url('./assets/images/bg-pattern-bottom-right.svg');
+    background-repeat: no-repeat;
+    background-position: top left, top right, bottom left, bottom right;
+    background-size: auto; /* Adjust as needed, or specify exact sizes */
+}
+
+
+.calculator-card {
+    background: var(--white);
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.form-section {
+    padding: 40px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.header h1 {
+    font-size: 28px; /* Adjust font size to match preview */
+    color: var(--slate-900);
+}
+
+#clear-btn {
+    color: var(--slate-700); /* Lighter color for "Clear All" */
+    text-decoration: underline;
+    background: none; /* Ensure no background */
+    border: none; /* Ensure no border */
+    cursor: pointer;
+    font-size: 16px; /* Adjust font size */
+}
+
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-wrapper {
+    display: flex;
+    border: 1px solid var(--slate-300);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.input-wrapper input {
+    border: none;
+    padding: 12px;
+    flex-grow: 1;
+    font-weight: 700;
+    outline: none;
+    color: var(--slate-900); /* Ensure input text color is dark */
+}
+
+.input-wrapper input:focus {
+    border-color: var(--primary-lime); /* Highlight border on focus */
+}
+
+.prefix,
+.suffix {
+    background: var(--slate-100);
+    padding: 12px 16px;
+    color: var(--slate-700);
+    font-weight: 700;
+}
+
+.row {
+    display: flex;
+    gap: 20px; /* Space between term and rate inputs */
+    margin-bottom: 20px;
+}
+
+.row .input-group {
+    flex: 1; /* Make input groups take equal space */
+}
+
+/* Radio Buttons */
+.radio-container {
+    border: 1px solid var(--slate-300);
+    padding: 12px;
+    margin-top: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex; /* Align radio button and label */
+    align-items: center;
+}
+
+.radio-container input[type="radio"] {
+    /* Hide default radio button */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--slate-700);
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+}
+
+.radio-container input[type="radio"]:checked {
+    border-color: var(--primary-lime);
+}
+
+.radio-container input[type="radio"]:checked::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-lime);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.radio-label {
+    color: var(--slate-900); /* Darker text for radio label */
+    font-weight: 700;
+}
+
+.radio-container:hover {
+    border-color: var(--primary-lime); /* Hover effect for radio container */
+}
+
+.submit-btn {
+    background-color: var(--primary-lime);
+    color: var(--slate-900); /* Dark text on lime background */
+    border: none;
+    padding: 15px 25px;
+    border-radius: 30px; /* More rounded corners */
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between icon and text */
+    width: 100%; /* Make button full width */
+}
+
+.submit-btn img {
+    width: 20px; /* Adjust icon size */
+    height: 20px;
+}
+
+.radio-container:has(input:checked) {
+    background: hsla(61, 70%, 52%, 0.1);
+    border-color: var(--primary-lime);
+}
+
+/* Results Section */
+.results-section {
+    background: var(--slate-900);
+    color: var(--white);
+    padding: 40px;
+    border-bottom-left-radius: 80px;
+    display: flex; /* Make it a flex container */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Ensure text is centered within the flex item */
+}
+
+.results-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.results-section p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--slate-300); /* Lighter text for description */
+}
+
+
+.result-card {
+    background: rgba(0, 0, 0, 0.25);
+    padding: 30px;
+    border-top: 4px solid var(--primary-lime);
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+.result-card small {
+    color: var(--slate-300); /* Lighter text for small labels */
+    font-size: 14px;
+}
+
+#monthly-result {
+    display: block;
+    font-size: 3rem;
+    color: var(--primary-lime);
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 20px; /* Space below monthly result */
+}
+
+.result-card hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Lighter separator */
+    margin: 20px 0;
+}
+
+#total-result {
+    display: block;
+    font-size: 24px; /* Adjust total result font size */
+    color: var(--white);
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.empty-state {
+    text-align: center; /* Center align empty state content */
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .calculator-card {
+        grid-template-columns: 1fr;
+        border-radius: 0;
+    }
+
+    .results-section {
+        border-bottom-left-radius: 0;
+    }
+}
